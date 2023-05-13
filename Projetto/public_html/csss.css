@@ -1,0 +1,19 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 13 mag 2023, 08:41:18
+    Author     : gabriele.urban
+*/
+#content{
+    font-family: Comic Sans MS, Times New Roman, Arial;
+    font-size: 18pt;
+    color: red;
+    text-align: left;
+}
+.morb{
+  position: static;
+  right: 3pt;
+  border: 3px solid #7b28f7;
+}
