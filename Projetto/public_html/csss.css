@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     text-align: left;
 }
 .morb{
-  position: static;
-  right: 3pt;
+  position: relative;
+  right: 3px;
   border: 3px solid #7b28f7;
 }
