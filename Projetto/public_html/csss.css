@@ -22,8 +22,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
 .Container{
 	background: gray;
 	width: 98vw;
-    height: 365px;
+    height: 385px;
 	position: relative;
+}
+
+.textBox{
+	
+	text-align: center;
+}.imageBox{
+	display: block;
+	margin: 0 auto;
 }
 
 .MainText{
@@ -39,6 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
 }
 
 .MainLine{
+	margin-left: 10px;
 	float: left;
     color: #8B0000;
 	font-size: 18pt;
