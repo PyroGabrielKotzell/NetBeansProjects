@@ -85,8 +85,8 @@ public class MainJPanel extends javax.swing.JPanel {
         try{
             float base = Float.parseFloat(testoBase.getText());
             float altezza = Float.parseFloat(testoAltezza.getText());
-            float area = base*altezza;
-            risultato.setText(area+"");
+            float area = base*altezza/2;
+            risultato.setText("area: " + area);
         }catch(NumberFormatException e){
             risultato.setText("Valori non validi");
         }
