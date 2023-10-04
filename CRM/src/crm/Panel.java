@@ -27,6 +27,8 @@ public class Panel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         listamembri = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -36,14 +38,29 @@ public class Panel extends javax.swing.JPanel {
         Out = new javax.swing.JLabel();
         cancMem = new javax.swing.JButton();
         iscrivimembro = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        tNome = new javax.swing.JTextField();
+        tCognome = new javax.swing.JTextField();
+        Nome = new javax.swing.JLabel();
+        Cognome = new javax.swing.JLabel();
+        Iscrivi = new javax.swing.JButton();
+        Pulisci = new javax.swing.JButton();
+        dataNasc = new javax.swing.JLabel();
+        dataIsc = new javax.swing.JLabel();
+        dataN = new javax.swing.JFormattedTextField();
+        genere = new javax.swing.JLabel();
+        dataI = new javax.swing.JFormattedTextField();
+        Maschio = new javax.swing.JRadioButton();
+        Femmina = new javax.swing.JRadioButton();
+        Altro = new javax.swing.JRadioButton();
+        Annuale = new javax.swing.JRadioButton();
+        Mensile = new javax.swing.JRadioButton();
+        Settimanale = new javax.swing.JRadioButton();
+        pianoIsc1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(400, 300));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(400, 300));
 
         listamembri.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,46 +84,100 @@ public class Panel extends javax.swing.JPanel {
         jTabbedPane1.addTab("Lista membri", listamembri);
 
         iscrivimembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        iscrivimembro.add(tNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
+        iscrivimembro.add(tCognome, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 60, -1));
 
-        jTextField1.setText("jTextField1");
-        iscrivimembro.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
+        Nome.setText("Nome");
+        iscrivimembro.add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jTextField2.setText("jTextField2");
-        iscrivimembro.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+        Cognome.setText("Cognome");
+        iscrivimembro.add(Cognome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
-        jLabel2.setText("jLabel2");
-        iscrivimembro.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        Iscrivi.setText("Iscrivi");
+        iscrivimembro.add(Iscrivi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
-        jLabel3.setText("jLabel3");
-        iscrivimembro.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+        Pulisci.setText("Pulisci");
+        iscrivimembro.add(Pulisci, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
 
-        jButton2.setText("jButton2");
-        iscrivimembro.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        dataNasc.setText("Data di nascità");
+        iscrivimembro.add(dataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jButton3.setText("jButton3");
-        iscrivimembro.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+        dataIsc.setText("Data iscrizione");
+        iscrivimembro.add(dataIsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        dataN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        dataN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        iscrivimembro.add(dataN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 100, -1));
+
+        genere.setText("Genere:");
+        iscrivimembro.add(genere, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        dataI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        dataI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        iscrivimembro.add(dataI, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 100, -1));
+
+        buttonGroup1.add(Maschio);
+        Maschio.setText("Maschio");
+        iscrivimembro.add(Maschio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+
+        buttonGroup1.add(Femmina);
+        Femmina.setText("Femmina");
+        iscrivimembro.add(Femmina, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+
+        buttonGroup1.add(Altro);
+        Altro.setText("Altro");
+        iscrivimembro.add(Altro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+
+        buttonGroup2.add(Annuale);
+        Annuale.setText("Annuale");
+        iscrivimembro.add(Annuale, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, -1));
+
+        buttonGroup2.add(Mensile);
+        Mensile.setText("Mensile");
+        iscrivimembro.add(Mensile, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+
+        buttonGroup2.add(Settimanale);
+        Settimanale.setText("Settimanale");
+        iscrivimembro.add(Settimanale, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+
+        pianoIsc1.setText("Piano iscrizione");
+        iscrivimembro.add(pianoIsc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         jTabbedPane1.addTab("Iscrivi membro", iscrivimembro);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Altro;
+    private javax.swing.JRadioButton Annuale;
+    private javax.swing.JLabel Cognome;
+    private javax.swing.JRadioButton Femmina;
+    private javax.swing.JButton Iscrivi;
+    private javax.swing.JRadioButton Maschio;
+    private javax.swing.JRadioButton Mensile;
+    private javax.swing.JLabel Nome;
     private javax.swing.JLabel Out;
+    private javax.swing.JButton Pulisci;
+    private javax.swing.JRadioButton Settimanale;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton cancMem;
     private javax.swing.JButton carica;
+    private javax.swing.JFormattedTextField dataI;
+    private javax.swing.JLabel dataIsc;
+    private javax.swing.JFormattedTextField dataN;
+    private javax.swing.JLabel dataNasc;
+    private javax.swing.JLabel genere;
     private javax.swing.JPanel iscrivimembro;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JList<String> lista;
     private javax.swing.JPanel listamembri;
+    private javax.swing.JLabel pianoIsc1;
     private javax.swing.JButton salva;
+    private javax.swing.JTextField tCognome;
+    private javax.swing.JTextField tNome;
     // End of variables declaration//GEN-END:variables
 }
