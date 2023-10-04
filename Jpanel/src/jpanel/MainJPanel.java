@@ -33,24 +33,29 @@ public class MainJPanel extends javax.swing.JPanel {
         testoAltezza = new javax.swing.JTextField();
         pulsanteCalcola = new javax.swing.JButton();
         risultato = new javax.swing.JLabel();
+        Titolo = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelBase.setText("base");
+        add(labelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
         labelAltezza.setText("altezza");
+        add(labelAltezza, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
-        testoBase.setText("inserisci base");
         testoBase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testoBaseActionPerformed(evt);
             }
         });
+        add(testoBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 98, -1));
 
-        testoAltezza.setText("inserisci altezza");
         testoAltezza.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 testoAltezzaActionPerformed(evt);
             }
         });
+        add(testoAltezza, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 98, -1));
 
         pulsanteCalcola.setText("calcola");
         pulsanteCalcola.addActionListener(new java.awt.event.ActionListener() {
@@ -58,48 +63,18 @@ public class MainJPanel extends javax.swing.JPanel {
                 pulsanteCalcolaActionPerformed(evt);
             }
         });
+        add(pulsanteCalcola, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
 
+        risultato.setBackground(new java.awt.Color(0, 0, 0));
+        risultato.setForeground(new java.awt.Color(0, 146, 0));
+        risultato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         risultato.setText("dato calcolato");
+        risultato.setToolTipText("");
+        risultato.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(200, 0, 15), 1, true));
+        add(risultato, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 120, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(risultato)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(61, 61, 61)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelBase)
-                                .addComponent(labelAltezza))
-                            .addGap(25, 25, 25)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(testoAltezza)
-                                .addComponent(testoBase)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(153, 153, 153)
-                            .addComponent(pulsanteCalcola))))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelBase)
-                    .addComponent(testoBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelAltezza)
-                    .addComponent(testoAltezza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(pulsanteCalcola)
-                .addGap(33, 33, 33)
-                .addComponent(risultato)
-                .addContainerGap(110, Short.MAX_VALUE))
-        );
+        Titolo.setText("Calcolatore area triangolo");
+        add(Titolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void testoBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testoBaseActionPerformed
@@ -107,10 +82,14 @@ public class MainJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_testoBaseActionPerformed
 
     private void pulsanteCalcolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsanteCalcolaActionPerformed
-        float base = Float.parseFloat(testoBase.getText());
-        float altezza = Float.parseFloat(testoAltezza.getText());
-        float area = base*altezza;
-        risultato.setText(area+"");
+        try{
+            float base = Float.parseFloat(testoBase.getText());
+            float altezza = Float.parseFloat(testoAltezza.getText());
+            float area = base*altezza;
+            risultato.setText(area+"");
+        }catch(NumberFormatException e){
+            risultato.setText("Valori non validi");
+        }
     }//GEN-LAST:event_pulsanteCalcolaActionPerformed
 
     private void testoAltezzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testoAltezzaActionPerformed
@@ -119,6 +98,7 @@ public class MainJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titolo;
     private javax.swing.JLabel labelAltezza;
     private javax.swing.JLabel labelBase;
     private javax.swing.JButton pulsanteCalcola;
