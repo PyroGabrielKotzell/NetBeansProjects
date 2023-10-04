@@ -27,35 +27,37 @@ public class MainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelBase = new javax.swing.JLabel();
-        labelAltezza = new javax.swing.JLabel();
-        testoBase = new javax.swing.JTextField();
-        testoAltezza = new javax.swing.JTextField();
+        labelcateto1 = new javax.swing.JLabel();
+        labelcateto2 = new javax.swing.JLabel();
+        testocateto1 = new javax.swing.JTextField();
+        testocateto2 = new javax.swing.JTextField();
         pulsanteCalcola = new javax.swing.JButton();
         risultato = new javax.swing.JLabel();
         Titolo = new javax.swing.JLabel();
+        ipotenusa = new javax.swing.JLabel();
+        testoipotenusa = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelBase.setText("base");
-        add(labelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+        labelcateto1.setText("cateto 1");
+        add(labelcateto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        labelAltezza.setText("altezza");
-        add(labelAltezza, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        labelcateto2.setText("cateto 2");
+        add(labelcateto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
-        testoBase.addActionListener(new java.awt.event.ActionListener() {
+        testocateto1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testoBaseActionPerformed(evt);
+                testocateto1ActionPerformed(evt);
             }
         });
-        add(testoBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 98, -1));
+        add(testocateto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 98, -1));
 
-        testoAltezza.addActionListener(new java.awt.event.ActionListener() {
+        testocateto2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testoAltezzaActionPerformed(evt);
+                testocateto2ActionPerformed(evt);
             }
         });
-        add(testoAltezza, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 98, -1));
+        add(testocateto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 98, -1));
 
         pulsanteCalcola.setText("calcola");
         pulsanteCalcola.addActionListener(new java.awt.event.ActionListener() {
@@ -75,35 +77,53 @@ public class MainJPanel extends javax.swing.JPanel {
 
         Titolo.setText("Calcolatore area triangolo");
         add(Titolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        ipotenusa.setText("ipotenusa");
+        add(ipotenusa, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+
+        testoipotenusa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testoipotenusaActionPerformed(evt);
+            }
+        });
+        add(testoipotenusa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 98, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void testoBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testoBaseActionPerformed
+    private void testocateto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testocateto1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_testoBaseActionPerformed
+    }//GEN-LAST:event_testocateto1ActionPerformed
 
     private void pulsanteCalcolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pulsanteCalcolaActionPerformed
         try{
-            float base = Float.parseFloat(testoBase.getText());
-            float altezza = Float.parseFloat(testoAltezza.getText());
-            float area = base*altezza/2;
+            float a = Float.parseFloat(testocateto1.getText());
+            float b = Float.parseFloat(testocateto2.getText());
+            float c = Float.parseFloat(testoipotenusa.getText());
+            float s = (a + b + c)/2;
+            float area = (float) Math.sqrt(s*(s-a)*(s-b)*(s-c));
             risultato.setText("area: " + area);
         }catch(NumberFormatException e){
             risultato.setText("Valori non validi");
         }
     }//GEN-LAST:event_pulsanteCalcolaActionPerformed
 
-    private void testoAltezzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testoAltezzaActionPerformed
+    private void testocateto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testocateto2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_testoAltezzaActionPerformed
+    }//GEN-LAST:event_testocateto2ActionPerformed
+
+    private void testoipotenusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testoipotenusaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_testoipotenusaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titolo;
-    private javax.swing.JLabel labelAltezza;
-    private javax.swing.JLabel labelBase;
+    private javax.swing.JLabel ipotenusa;
+    private javax.swing.JLabel labelcateto1;
+    private javax.swing.JLabel labelcateto2;
     private javax.swing.JButton pulsanteCalcola;
     private javax.swing.JLabel risultato;
-    private javax.swing.JTextField testoAltezza;
-    private javax.swing.JTextField testoBase;
+    private javax.swing.JTextField testocateto1;
+    private javax.swing.JTextField testocateto2;
+    private javax.swing.JTextField testoipotenusa;
     // End of variables declaration//GEN-END:variables
 }
