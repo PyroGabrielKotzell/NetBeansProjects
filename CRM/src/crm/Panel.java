@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package crm;
-
+import javax.swing.*;
+import java.io.*;
 /**
  *
  * @author gabriele.urban
@@ -37,6 +38,9 @@ public class Panel extends javax.swing.JPanel {
         carica = new javax.swing.JButton();
         Out = new javax.swing.JLabel();
         cancMem = new javax.swing.JButton();
+        scritta = new javax.swing.JLabel();
+        path = new javax.swing.JTextField();
+        SClabel = new javax.swing.JLabel();
         iscrivimembro = new javax.swing.JPanel();
         tNome = new javax.swing.JTextField();
         tCognome = new javax.swing.JTextField();
@@ -47,7 +51,7 @@ public class Panel extends javax.swing.JPanel {
         dataNasc = new javax.swing.JLabel();
         dataIsc = new javax.swing.JLabel();
         dataN = new javax.swing.JFormattedTextField();
-        genere = new javax.swing.JLabel();
+        genereTXT = new javax.swing.JLabel();
         dataI = new javax.swing.JFormattedTextField();
         Maschio = new javax.swing.JRadioButton();
         Femmina = new javax.swing.JRadioButton();
@@ -56,6 +60,8 @@ public class Panel extends javax.swing.JPanel {
         Mensile = new javax.swing.JRadioButton();
         Settimanale = new javax.swing.JRadioButton();
         pianoIsc1 = new javax.swing.JLabel();
+        scritta1 = new javax.swing.JLabel();
+        Out1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -69,23 +75,49 @@ public class Panel extends javax.swing.JPanel {
         listamembri.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 240));
 
         salva.setText("Salva");
-        listamembri.add(salva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+        salva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salvaActionPerformed(evt);
+            }
+        });
+        listamembri.add(salva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
 
         carica.setText("Carica");
-        listamembri.add(carica, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+        carica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caricaActionPerformed(evt);
+            }
+        });
+        listamembri.add(carica, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
         Out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Out.setText(" ");
-        listamembri.add(Out, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
+        Out.setText("Out:");
+        listamembri.add(Out, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
         cancMem.setText("Cancella membro");
-        listamembri.add(cancMem, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
+        cancMem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancMemActionPerformed(evt);
+            }
+        });
+        listamembri.add(cancMem, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 120, -1));
+
+        scritta.setText(" ");
+        listamembri.add(scritta, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+        listamembri.add(path, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 140, -1));
+
+        SClabel.setText("Percorso file:");
+        listamembri.add(SClabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         jTabbedPane1.addTab("Lista membri", listamembri);
 
         iscrivimembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        iscrivimembro.add(tNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
-        iscrivimembro.add(tCognome, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 60, -1));
+
+        tNome.setText("giorgio");
+        iscrivimembro.add(tNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 80, -1));
+
+        tCognome.setText("carriola");
+        iscrivimembro.add(tCognome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 80, -1));
 
         Nome.setText("Nome");
         iscrivimembro.add(Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -94,10 +126,20 @@ public class Panel extends javax.swing.JPanel {
         iscrivimembro.add(Cognome, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         Iscrivi.setText("Iscrivi");
-        iscrivimembro.add(Iscrivi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        Iscrivi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IscriviActionPerformed(evt);
+            }
+        });
+        iscrivimembro.add(Iscrivi, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
         Pulisci.setText("Pulisci");
-        iscrivimembro.add(Pulisci, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+        Pulisci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PulisciActionPerformed(evt);
+            }
+        });
+        iscrivimembro.add(Pulisci, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         dataNasc.setText("Data di nascità");
         iscrivimembro.add(dataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
@@ -105,48 +147,185 @@ public class Panel extends javax.swing.JPanel {
         dataIsc.setText("Data iscrizione");
         iscrivimembro.add(dataIsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        dataN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        dataN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/y"))));
         dataN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        dataN.setText("11/11/1111");
+        dataN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataNActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(dataN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 100, -1));
 
-        genere.setText("Genere:");
-        iscrivimembro.add(genere, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        genereTXT.setText("Genere:");
+        iscrivimembro.add(genereTXT, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        dataI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        dataI.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/y"))));
         dataI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        dataI.setText("11/11/1111");
         iscrivimembro.add(dataI, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 100, -1));
 
         buttonGroup1.add(Maschio);
         Maschio.setText("Maschio");
+        Maschio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaschioActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Maschio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         buttonGroup1.add(Femmina);
         Femmina.setText("Femmina");
+        Femmina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FemminaActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Femmina, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
         buttonGroup1.add(Altro);
         Altro.setText("Altro");
+        Altro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AltroActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Altro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
         buttonGroup2.add(Annuale);
         Annuale.setText("Annuale");
+        Annuale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnnualeActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Annuale, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, -1, -1));
 
         buttonGroup2.add(Mensile);
         Mensile.setText("Mensile");
+        Mensile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MensileActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Mensile, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
 
         buttonGroup2.add(Settimanale);
         Settimanale.setText("Settimanale");
+        Settimanale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettimanaleActionPerformed(evt);
+            }
+        });
         iscrivimembro.add(Settimanale, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         pianoIsc1.setText("Piano iscrizione");
         iscrivimembro.add(pianoIsc1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
+        scritta1.setText(" ");
+        iscrivimembro.add(scritta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        Out1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Out1.setText("Out:");
+        iscrivimembro.add(Out1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
         jTabbedPane1.addTab("Iscrivi membro", iscrivimembro);
 
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+        private DefaultListModel<String> modello = new DefaultListModel<>();
+        public int genere = 0, piano = 0;
+    private void IscriviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IscriviActionPerformed
+        String a = Nome.getText(), b = Cognome.getText(), c = "", d = "", e = dataN.getText(), f = dataI.getText();
+        switch(genere){
+            case 1 -> c = "Maschio";
+            case 2 -> c = "Femmina";
+            case 3 -> c = "Altro";
+        }
+        switch(piano){
+            case 1 -> d = "Annuale";
+            case 2 -> d = "Mensile";
+            case 3 -> d = "Settimanale";
+        }
+        Membro m = new Membro(a, b, c, d, e, f);
+        if(genere != 0 && piano != 0) {
+            modello.addElement(m.toString());
+            lista.setModel(modello);
+            scritta1.setText("Membro aggiunto!");
+        } else scritta1.setText("Devi selezionare un piano e un genere!");
+    }//GEN-LAST:event_IscriviActionPerformed
+
+    private void dataNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNActionPerformed
+
+    private void AnnualeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnualeActionPerformed
+        piano = 1;
+    }//GEN-LAST:event_AnnualeActionPerformed
+
+    private void MensileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MensileActionPerformed
+        piano = 2;
+    }//GEN-LAST:event_MensileActionPerformed
+
+    private void SettimanaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettimanaleActionPerformed
+        piano = 3;
+    }//GEN-LAST:event_SettimanaleActionPerformed
+
+    private void MaschioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaschioActionPerformed
+        genere = 1;
+    }//GEN-LAST:event_MaschioActionPerformed
+
+    private void FemminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemminaActionPerformed
+        genere = 2;
+    }//GEN-LAST:event_FemminaActionPerformed
+
+    private void AltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltroActionPerformed
+        genere = 3;
+    }//GEN-LAST:event_AltroActionPerformed
+
+    private void PulisciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PulisciActionPerformed
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
+        tNome.setText("giorgio");
+        tCognome.setText("carriola");
+        dataI.setText("11/11/1111");
+        dataN.setText("11/11/1111");
+        genere = 0;
+        piano = 0;
+        scritta1.setText("Impostazioni pulite!");
+    }//GEN-LAST:event_PulisciActionPerformed
+
+    private void cancMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancMemActionPerformed
+        try{
+            modello.remove(lista.getSelectedIndex());
+            lista.setModel(modello);
+            scritta.setText("Membro rimosso!");
+        }catch(Exception ignored){}
+    }//GEN-LAST:event_cancMemActionPerformed
+
+    private void salvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvaActionPerformed
+        try{
+            File f = new File(path.getText());
+            if (f.isDirectory()){
+                File txt = new File(f.getName()+"/Nuovo File.txt");
+                txt.createNewFile();
+                FileWriter fw = new FileWriter(txt);
+                BufferedWriter bw = new BufferedWriter(fw);
+                for(int i = 0; i<lista.getModel().getSize(); i++){
+                    bw.write(lista.getModel().getElementAt(i));
+                    bw.newLine();
+                    bw.flush();
+                }
+                fw.close();
+            }else if (f.isFile()){
+            }else scritta.setText("Percorso non valido");
+        }catch(Exception ignored){}
+    }//GEN-LAST:event_salvaActionPerformed
+
+    private void caricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaActionPerformed
+        try{
+        }catch(Exception ignored){}
+    }//GEN-LAST:event_caricaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -159,7 +338,9 @@ public class Panel extends javax.swing.JPanel {
     private javax.swing.JRadioButton Mensile;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel Out;
+    private javax.swing.JLabel Out1;
     private javax.swing.JButton Pulisci;
+    private javax.swing.JLabel SClabel;
     private javax.swing.JRadioButton Settimanale;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -169,14 +350,17 @@ public class Panel extends javax.swing.JPanel {
     private javax.swing.JLabel dataIsc;
     private javax.swing.JFormattedTextField dataN;
     private javax.swing.JLabel dataNasc;
-    private javax.swing.JLabel genere;
+    private javax.swing.JLabel genereTXT;
     private javax.swing.JPanel iscrivimembro;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JList<String> lista;
     private javax.swing.JPanel listamembri;
+    private javax.swing.JTextField path;
     private javax.swing.JLabel pianoIsc1;
     private javax.swing.JButton salva;
+    private javax.swing.JLabel scritta;
+    private javax.swing.JLabel scritta1;
     private javax.swing.JTextField tCognome;
     private javax.swing.JTextField tNome;
     // End of variables declaration//GEN-END:variables
