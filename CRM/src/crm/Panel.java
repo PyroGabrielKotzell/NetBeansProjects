@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package crm;
+
 import javax.swing.*;
 import java.io.*;
+
 /**
  *
  * @author gabriele.urban
@@ -234,25 +236,32 @@ public class Panel extends javax.swing.JPanel {
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
         private DefaultListModel<String> modello = new DefaultListModel<>();
-        public int genere = 0, piano = 0;
+    public int genere = 0, piano = 0;
     private void IscriviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IscriviActionPerformed
-        String a = Nome.getText(), b = Cognome.getText(), c = "", d = "", e = dataN.getText(), f = dataI.getText();
-        switch(genere){
-            case 1 -> c = "Maschio";
-            case 2 -> c = "Femmina";
-            case 3 -> c = "Altro";
+        String a = tNome.getText(), b = tCognome.getText(), c = "", d = "", e = dataN.getText(), f = dataI.getText();
+        switch (genere) {
+            case 1 ->
+                c = "Maschio";
+            case 2 ->
+                c = "Femmina";
+            case 3 ->
+                c = "Altro";
         }
-        switch(piano){
-            case 1 -> d = "Annuale";
-            case 2 -> d = "Mensile";
-            case 3 -> d = "Settimanale";
+        switch (piano) {
+            case 1 ->
+                d = "Annuale";
+            case 2 ->
+                d = "Mensile";
+            case 3 ->
+                d = "Settimanale";
         }
         Membro m = new Membro(a, b, c, d, e, f);
-        if(genere != 0 && piano != 0) {
+        if (genere != 0 && piano != 0) {
             modello.addElement(m.toString());
             lista.setModel(modello);
             scritta1.setText("Membro aggiunto!");
-        } else scritta1.setText("Devi selezionare un piano e un genere!");
+        } else
+            scritta1.setText("Devi selezionare un piano e un genere!");
     }//GEN-LAST:event_IscriviActionPerformed
 
     private void dataNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNActionPerformed
@@ -296,38 +305,69 @@ public class Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_PulisciActionPerformed
 
     private void cancMemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancMemActionPerformed
-        try{
+        try {
             modello.remove(lista.getSelectedIndex());
             lista.setModel(modello);
             scritta.setText("Membro rimosso!");
-        }catch(Exception ignored){}
+        } catch (Exception ignored) {
+        }
     }//GEN-LAST:event_cancMemActionPerformed
 
     private void salvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvaActionPerformed
-        try{
-            File f = new File(path.getText());
-            if (f.isDirectory()){
-                File txt = new File(f.getName()+"/Nuovo File.txt");
-                txt.createNewFile();
-                FileWriter fw = new FileWriter(txt);
-                BufferedWriter bw = new BufferedWriter(fw);
-                for(int i = 0; i<lista.getModel().getSize(); i++){
-                    bw.write(lista.getModel().getElementAt(i));
-                    bw.newLine();
-                    bw.flush();
-                }
-                fw.close();
-            }else if (f.isFile()){
+        try {
+            File f = new File(path.getText().replaceAll("\\\\", "/"));
+            if (f.isFile()) {
                 String name = f.getName();
-                if (name.substring(name.length()-4, name.length()).equals(".txt")){
+                if (name.substring(name.length() - 4, name.length()).equals(".txt")) {
+                    print(f);
+                    scritta.setText("File salvato" + f.getAbsolutePath());
+                } else {
+                    File newFile = new File(f.getName() + "/Nuovo File.txt");
+                    newFile.createNewFile();
+                    print(newFile);
+                    scritta.setText("File salvato" + newFile.getAbsolutePath());
                 }
-            }else scritta.setText("Percorso non valido");
-        }catch(Exception ignored){}
+            } else if (f.isDirectory()) {
+                File newFile = new File(f.getAbsolutePath() + "/Nuovo File.txt");
+                newFile.createNewFile();
+                print(newFile);
+                scritta.setText("File salvato" + newFile.getAbsolutePath());
+            } else scritta.setText("Percorso non valido");
+        } catch (Exception e) {
+            scritta.setText("Percorso non valido");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_salvaActionPerformed
-
+    private void print(File f) throws IOException {
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter bw = new BufferedWriter(fw);
+        for (int i = 0; i < lista.getModel().getSize(); i++) {
+            bw.write(lista.getModel().getElementAt(i));
+            bw.newLine();
+            bw.flush();
+        }
+        fw.close();
+    }
     private void caricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaActionPerformed
-        try{
-        }catch(Exception ignored){}
+        try {
+            File f = new File(path.getText().replaceAll("\\\\", "/"));
+            String format = f.getName();
+            format = format.substring(format.length() - 4, format.length());
+            if (f.isFile() && format.equals(".txt")){
+                FileReader fr = new FileReader(f);
+                BufferedReader br = new BufferedReader(fr);
+                modello.removeAllElements();
+                while (br.ready()){
+                    String[] dataMembro = br.readLine().split("; ");
+                    Membro m = new Membro(dataMembro[1],dataMembro[2],dataMembro[3],dataMembro[4],dataMembro[5],dataMembro[6]);
+                    modello.addElement(m.toString());
+                }
+                lista.setModel(modello);
+                scritta.setText("File caricato");
+            } else scritta.setText("File non valido");
+        } catch (Exception ignored) {
+            scritta.setText("File non valido");
+        }
     }//GEN-LAST:event_caricaActionPerformed
 
 
