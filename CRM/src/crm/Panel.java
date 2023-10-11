@@ -94,7 +94,7 @@ public class Panel extends javax.swing.JPanel {
         Out.setText("Out:");
         listamembri.add(Out, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
-        cancMem.setText("Cancella membro");
+        cancMem.setText("Cancella");
         cancMem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancMemActionPerformed(evt);
@@ -318,6 +318,9 @@ public class Panel extends javax.swing.JPanel {
                 }
                 fw.close();
             }else if (f.isFile()){
+                String name = f.getName();
+                if (name.substring(name.length()-4, name.length()).equals(".txt")){
+                }
             }else scritta.setText("Percorso non valido");
         }catch(Exception ignored){}
     }//GEN-LAST:event_salvaActionPerformed

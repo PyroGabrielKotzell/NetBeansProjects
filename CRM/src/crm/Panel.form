@@ -117,7 +117,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="cancMem">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cancella membro"/>
+                <Property name="text" type="java.lang.String" value="Cancella"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancMemActionPerformed"/>
