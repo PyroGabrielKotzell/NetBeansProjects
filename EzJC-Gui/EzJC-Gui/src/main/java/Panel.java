@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 import javax.swing.*;
+import java.io.*;
 /**
  *
  * @author Gabriele Urban
@@ -112,8 +113,7 @@ public class Panel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Model m = new Model();
-        Progetti.setModel(newModel);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
