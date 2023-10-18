@@ -47,6 +47,8 @@ public class Panel extends javax.swing.JPanel {
         path = new javax.swing.JTextField();
         SClabel = new javax.swing.JLabel();
         Modifica = new javax.swing.JButton();
+        Nfile = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         iscrivimembro = new javax.swing.JPanel();
         tNome = new javax.swing.JTextField();
         tCognome = new javax.swing.JTextField();
@@ -87,7 +89,7 @@ public class Panel extends javax.swing.JPanel {
                 salvaActionPerformed(evt);
             }
         });
-        listamembri.add(salva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
+        listamembri.add(salva, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
         carica.setText("Carica");
         carica.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +97,7 @@ public class Panel extends javax.swing.JPanel {
                 caricaActionPerformed(evt);
             }
         });
-        listamembri.add(carica, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+        listamembri.add(carica, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         Out.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Out.setText("Out:");
@@ -111,10 +113,10 @@ public class Panel extends javax.swing.JPanel {
 
         scritta.setText(" ");
         listamembri.add(scritta, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
-        listamembri.add(path, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 140, -1));
+        listamembri.add(path, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 140, -1));
 
         SClabel.setText("Percorso file:");
-        listamembri.add(SClabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
+        listamembri.add(SClabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         Modifica.setText("Modifica");
         Modifica.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +125,10 @@ public class Panel extends javax.swing.JPanel {
             }
         });
         listamembri.add(Modifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 120, -1));
+        listamembri.add(Nfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 140, -1));
+
+        jLabel1.setText("Nome file:");
+        listamembri.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
         jTabbedPane1.addTab("Lista membri", listamembri);
 
@@ -245,18 +251,23 @@ public class Panel extends javax.swing.JPanel {
 
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private DefaultListModel<String> modello = new DefaultListModel<>();
     public int genere = 0, piano = 0;
-    
+
     private void IscriviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IscriviActionPerformed
         Membro m = getMembro();
-        if (genere != 0 && piano != 0) {
+        boolean campiVuoti = genere == 0 || piano == 0 ||
+                tNome.getText().equals("") ||
+                tCognome.getText().equals("") ||
+                dataI.getText().equals("") ||
+                dataN.getText().equals("");
+        if (!campiVuoti) {
             modello.addElement(m.toString());
             lista.setModel(modello);
             scritta1.setText("Membro aggiunto!");
         } else
-            scritta1.setText("Devi selezionare un piano e un genere!");
+            scritta1.setText("Non lasciare campi vuoti!");
     }//GEN-LAST:event_IscriviActionPerformed
 
     private void AnnualeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnualeActionPerformed
@@ -307,32 +318,25 @@ public class Panel extends javax.swing.JPanel {
 
     private void salvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvaActionPerformed
         try {
-            File f = new File(path.getText().replaceAll("\\\\", "/"));
-            if (f.isFile()) {
-                String name = f.getName();
-                if (name.substring(name.length() - 4, name.length()).equals(".txt")) {
+            if (!Nfile.getText().equals("")) {
+                String tmp = path.getText();
+                tmp = tmp.replaceAll("\\\\", "/");
+                File f = new File(tmp + "/" + Nfile.getText());
+                if (f.createNewFile()) {
                     print(f);
-                    scritta.setText("File salvato" + f.getAbsolutePath());
+                    scritta.setText("File salvato");
                 } else {
-                    File newFile = new File(f.getName() + "/Nuovo File.txt");
-                    newFile.createNewFile();
-                    print(newFile);
-                    scritta.setText("File salvato" + newFile.getAbsolutePath());
+                    scritta.setText("Il file esiste già");
                 }
-            } else if (f.isDirectory()) {
-                File newFile = new File(f.getAbsolutePath() + "/Nuovo File.txt");
-                newFile.createNewFile();
-                print(newFile);
-                scritta.setText("File salvato" + newFile.getAbsolutePath());
             } else {
-                scritta.setText("Percorso non valido");
+                scritta.setText("Specifica nome file");
             }
         } catch (Exception e) {
             scritta.setText("Percorso non valido");
             e.printStackTrace();
         }
     }//GEN-LAST:event_salvaActionPerformed
-    
+
     private void print(File f) throws IOException {
         FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
@@ -343,30 +347,31 @@ public class Panel extends javax.swing.JPanel {
         }
         fw.close();
     }
-    
+
     private void caricaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caricaActionPerformed
         try {
-            String tmp = path.getText();
-            tmp = tmp.replaceAll("\\\\", "/");
-            File f = new File(tmp);
-            String format = f.getName();
-            format = format.substring(format.length() - 4, format.length());
-            if (f.isFile() && format.equals(".txt")) {
+            if (!Nfile.getText().equals("")) {
+                String tmp = path.getText();
+                tmp = tmp.replaceAll("\\\\", "/");
+                File f = new File(tmp + "/" + Nfile.getText() + ".txt");
                 FileReader fr = new FileReader(f);
                 BufferedReader br = new BufferedReader(fr);
                 modello.removeAllElements();
                 while (br.ready()) {
                     String[] dataMembro = br.readLine().split("; ");
-                    Membro m = new Membro(dataMembro[1], dataMembro[2], dataMembro[3], dataMembro[4], dataMembro[5], dataMembro[6]);
+                    Membro m = new Membro(dataMembro[0], dataMembro[1], dataMembro[2], dataMembro[3], dataMembro[4], dataMembro[5]);
                     modello.addElement(m.toString());
                 }
+                fr.close();
+                br.close();
                 lista.setModel(modello);
                 scritta.setText("File caricato");
             } else {
-                scritta.setText("File non valido");
+                scritta.setText("Specifica nome file");
             }
-        } catch (Exception ignored) {
+        } catch (Exception e) {
             scritta.setText("File non valido");
+            e.printStackTrace();
         }
     }//GEN-LAST:event_caricaActionPerformed
 
@@ -416,7 +421,12 @@ public class Panel extends javax.swing.JPanel {
 
     private void SalvaMembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvaMembroActionPerformed
         Membro m = getMembro();
-        if (genere != 0 && piano != 0) {
+        boolean campiVuoti = genere == 0 || piano == 0 ||
+                tNome.getText().equals("") ||
+                tCognome.getText().equals("") ||
+                dataI.getText().equals("") ||
+                dataN.getText().equals("");
+        if (!campiVuoti) {
             modello.setElementAt(m.toString(), lista.getSelectedIndex());
             lista.setModel(modello);
             scritta1.setText("Membro salvato!");
@@ -424,10 +434,10 @@ public class Panel extends javax.swing.JPanel {
             SalvaMembro.setVisible(false);
             jTabbedPane1.setEnabledAt(0, true);
         } else
-            scritta1.setText("Devi selezionare un piano e un genere!");
+            scritta1.setText("Non lasciare campi vuoti!");
     }//GEN-LAST:event_SalvaMembroActionPerformed
-    
-    private Membro getMembro(){
+
+    private Membro getMembro() {
         String a = tNome.getText(), b = tCognome.getText(), c = "", d = "", e = dataN.getText(), f = dataI.getText();
         switch (genere) {
             case 1 ->
@@ -457,6 +467,7 @@ public class Panel extends javax.swing.JPanel {
     private javax.swing.JRadioButton Maschio;
     private javax.swing.JRadioButton Mensile;
     private javax.swing.JButton Modifica;
+    private javax.swing.JTextField Nfile;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel Out;
     private javax.swing.JLabel Out1;
@@ -474,6 +485,7 @@ public class Panel extends javax.swing.JPanel {
     private javax.swing.JLabel dataNasc;
     private javax.swing.JLabel genereTXT;
     private javax.swing.JPanel iscrivimembro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JList<String> lista;
