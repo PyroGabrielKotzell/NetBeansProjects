@@ -33,7 +33,6 @@ public class Panel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        InstallazioneJava = new javax.swing.JPanel();
         Opzioni = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(225, 225, 225));
@@ -44,6 +43,8 @@ public class Panel extends javax.swing.JPanel {
 
         ConfProgetti.setPreferredSize(new java.awt.Dimension(700, 490));
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Projects");
+        Progetti.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         ContainerProgetti.setViewportView(Progetti);
 
         jButton1.setText("jButton1");
@@ -97,20 +98,7 @@ public class Panel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        Finestra.addTab("Project Configuration", ConfProgetti);
-
-        javax.swing.GroupLayout InstallazioneJavaLayout = new javax.swing.GroupLayout(InstallazioneJava);
-        InstallazioneJava.setLayout(InstallazioneJavaLayout);
-        InstallazioneJavaLayout.setHorizontalGroup(
-            InstallazioneJavaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 695, Short.MAX_VALUE)
-        );
-        InstallazioneJavaLayout.setVerticalGroup(
-            InstallazioneJavaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
-        );
-
-        Finestra.addTab("Java Installation", InstallazioneJava);
+        Finestra.addTab("Projects", ConfProgetti);
 
         javax.swing.GroupLayout OpzioniLayout = new javax.swing.GroupLayout(Opzioni);
         Opzioni.setLayout(OpzioniLayout);
@@ -154,7 +142,6 @@ public class Panel extends javax.swing.JPanel {
     private javax.swing.JPanel ConfProgetti;
     private javax.swing.JScrollPane ContainerProgetti;
     private javax.swing.JTabbedPane Finestra;
-    private javax.swing.JPanel InstallazioneJava;
     private javax.swing.JPanel Opzioni;
     private javax.swing.JTree Progetti;
     private javax.swing.JButton jButton1;

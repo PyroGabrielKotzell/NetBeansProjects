@@ -200,20 +200,13 @@ public class Random extends javax.swing.JPanel {
     private void openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openActionPerformed
         GestoreFiles f = new GestoreFiles(path.getText().replaceAll("\\\\", "/"));
         m = new javax.swing.DefaultListModel<>();
-        if (f.getFile().isFile()){
+        if (!f.getFile().isDirectory()){
             f.open();
             for(int i = 0; i<26; i++){
                 if (f.readerReady()){
                     String[] l = f.readln().split(",");
                     if (l.length != 4) break;
-                    if (CheckM.isSelected() && l[2].equals("M"))
-                        m.addElement(l[0] + "," + l[1] + "," + l[2] + "," + l[3]);
-                    if (CheckF.isSelected() && l[2].equals("F"))
-                        m.addElement(l[0] + "," + l[1] + "," + l[2] + "," + l[3]);
-                    if (CheckE.isSelected() && l[3].equals("E"))
-                        m.addElement(l[0] + "," + l[1] + "," + l[2] + "," + l[3]);
-                    if (CheckN.isSelected() && l[3].equals("N"))
-                        m.addElement(l[0] + "," + l[1] + "," + l[2] + "," + l[3]);
+                    if (check(l)) m.addElement(l[0] + "," + l[1] + "," + l[2] + "," + l[3]);
                 }else break;
             }
             lista.setModel(m);
@@ -221,7 +214,18 @@ public class Random extends javax.swing.JPanel {
         }else System.out.println("File not valid");
         cancelActionPerformed(null);
     }//GEN-LAST:event_openActionPerformed
-
+    private boolean check(String[] l){
+        boolean isCheckedM = CheckM.isSelected();
+        boolean isCheckedF = CheckF.isSelected();
+        boolean isCheckedE = CheckE.isSelected();
+        boolean isCheckedN = CheckN.isSelected();
+        boolean isM = l[2].equals("M");
+        boolean isF = l[2].equals("F");
+        boolean isE = l[3].equals("E");
+        boolean isN = l[3].equals("N");
+        
+        return ((isCheckedM && isM) || (isCheckedF && isF)) && ((isCheckedE && isE) || (isCheckedN && isN));
+    }
     private void MescolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MescolaActionPerformed
         java.util.Random r = new java.util.Random();
         java.util.ArrayList<Integer> l = new java.util.ArrayList<>();
