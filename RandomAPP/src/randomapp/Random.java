@@ -232,8 +232,10 @@ public class Random extends javax.swing.JPanel {
         for(int i = 0; i < 26; i++){
             int n = r.nextInt(26);
             while(l.contains(n)) n = r.nextInt(26);
-            String nome = lista.getModel().getElementAt(n).split(",")[0];
-            // connessione ad estrazione
+            try{
+                String nome = lista.getModel().getElementAt(n).split(",")[0];
+                // connessione ad estrazione
+            }catch(Exception ignored){}
             l.add(n);
         }
     }//GEN-LAST:event_MescolaActionPerformed
