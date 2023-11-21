@@ -60,9 +60,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="scrollpane" pref="161" max="32767" attributes="0"/>
+              <Component id="scrollpane" pref="159" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="testo1" max="32767" attributes="0"/>
+              <Component id="testo1" pref="19" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CheckM" alignment="3" max="32767" attributes="0"/>
@@ -76,11 +76,11 @@
                   <Component id="CheckN" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="path" pref="23" max="32767" attributes="0"/>
+              <Component id="path" pref="21" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cancel" alignment="3" pref="18" max="32767" attributes="0"/>
-                  <Component id="open" alignment="3" pref="0" max="32767" attributes="0"/>
+                  <Component id="cancel" alignment="3" pref="31" max="32767" attributes="0"/>
+                  <Component id="open" alignment="3" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>

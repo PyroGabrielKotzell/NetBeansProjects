@@ -54,158 +54,85 @@ public class Estrazione extends javax.swing.JPanel {
         t25 = new javax.swing.JLabel();
         t26 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         t1.setText("Nome1");
+        add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         t2.setText("Nome2");
+        add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 45, -1, -1));
 
         t3.setText("Nome3");
+        add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 78, 34, -1));
 
         t4.setText("Nome4");
+        add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, -1, -1));
 
         t5.setText("Nome5");
+        add(t5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 144, -1, -1));
 
         t6.setText("Nome6");
+        add(t6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 177, -1, -1));
 
         t7.setText("Nome7");
+        add(t7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 210, -1, -1));
 
         t8.setText("Nome8");
+        add(t8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 243, 34, -1));
 
         t9.setText("Nome9");
+        add(t9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 276, -1, -1));
 
         t10.setText("Nome10");
+        add(t10, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 12, -1, -1));
 
         t11.setText("Nome11");
+        add(t11, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 45, -1, -1));
 
         t12.setText("Nome12");
+        add(t12, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 78, -1, -1));
 
         t13.setText("Nome13");
+        add(t13, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 111, 40, -1));
 
         t14.setText("Nome14");
+        add(t14, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 144, -1, -1));
 
         t15.setText("Nome15");
+        add(t15, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 177, -1, -1));
 
         t16.setText("Nome16");
+        add(t16, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 210, -1, -1));
 
         t17.setText("Nome17");
+        add(t17, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 243, 40, -1));
 
         t18.setText("Nome18");
+        add(t18, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 276, -1, -1));
 
         t19.setText("Nome19");
+        add(t19, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 12, -1, -1));
 
         t20.setText("Nome20");
+        add(t20, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 45, -1, -1));
 
         t21.setText("Nome21");
+        add(t21, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 78, 44, -1));
 
         t22.setText("Nome22");
+        add(t22, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 111, -1, -1));
 
         t23.setText("Nome23");
+        add(t23, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 144, -1, -1));
 
         t24.setText("Nome24");
+        add(t24, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 177, -1, -1));
 
         t25.setText("Nome25");
+        add(t25, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 210, -1, -1));
 
         t26.setText("Nome26");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(t3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(t7)
-                    .addComponent(t4)
-                    .addComponent(t5)
-                    .addComponent(t6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(t9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(t18))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(t8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(t17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(t12)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(t2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(t11))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(t1)
-                                    .addGap(64, 64, 64)
-                                    .addComponent(t10)))
-                            .addComponent(t13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(t14)
-                            .addComponent(t15)
-                            .addComponent(t16))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(t19)
-                        .addComponent(t20)
-                        .addComponent(t24)
-                        .addComponent(t21, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(t22)
-                        .addComponent(t23)
-                        .addComponent(t25))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(t26)
-                        .addGap(7, 7, 7)))
-                .addGap(149, 149, 149))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t1)
-                    .addComponent(t10)
-                    .addComponent(t19))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t2)
-                    .addComponent(t11)
-                    .addComponent(t20))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t12)
-                    .addComponent(t3)
-                    .addComponent(t21))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t4)
-                    .addComponent(t13)
-                    .addComponent(t22))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t5)
-                    .addComponent(t14)
-                    .addComponent(t23))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t6)
-                    .addComponent(t15)
-                    .addComponent(t24))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t7)
-                    .addComponent(t16)
-                    .addComponent(t25))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t8)
-                    .addComponent(t17)
-                    .addComponent(t26))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(t9)
-                    .addComponent(t18))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(t26, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 243, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
