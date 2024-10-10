@@ -1,0 +1,97 @@
+:root {
+    --body-font-font-family: Poppins;
+    --body-font-font-style: normal;
+    --body-font-font-weight: 300;
+    --body-font-line-height: 1.8em;
+    --body-font-letter-spacing: 0em;
+    --body-font-text-transform: none;
+    --large-text-size: 1.4rem;
+    --large-text-size-value: 1.4;
+    --normal-text-size: 1rem;
+    --normal-text-size-value: 1;
+    --small-text-size: .9rem;
+    --small-text-size-value: .9;
+}
+
+.main {
+    font-size: calc((var(--normal-text-size-value) - 1)* 1.2vw + 1rem);
+    font-family: var(--body-font-font-family);
+    font-style: var(--body-font-font-style);
+    font-weight: var(--body-font-font-weight);
+    line-height: var(--body-font-line-height);
+    letter-spacing: var(--body-font-letter-spacing);
+    text-transform: var(--body-font-text-transform);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.headbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    line-height: 1;
+    min-width: 1vw;
+    background-color: hsl(353, 80%, 55%);
+    color: white;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.head-nav {
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.head-nav-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1 0 67%;
+    align-items: center;
+}
+
+.header-logo {
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.header-logo img {
+    width: auto;
+    max-height: 55px;
+}
+
+.header-text {
+    text-align: right;
+    margin-left: auto;
+    padding-left: 2vw;
+}
+
+.nav-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-list>div {
+    white-space: nowrap;
+    margin-left: 1.6vw;
+}
+
+.nav-list>div>a {
+    color: white;
+    padding: .1em 0;
+    text-decoration: none;
+}
+
+.header-icons {
+    text-align: right;
+    margin-left: auto;
+    padding-left: 2vw;
+}
