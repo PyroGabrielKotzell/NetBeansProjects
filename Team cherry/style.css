@@ -46,9 +46,11 @@
     position: relative;
     display: flex;
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
     justify-content: flex-start;
     align-items: center;
+    margin: 0 auto;
 }
 
 .head-nav-wrapper {
