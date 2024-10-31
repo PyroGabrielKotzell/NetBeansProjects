@@ -103,12 +103,47 @@
 
 .article {
     clear: both;
-    margin-top: 6vw;
-    background-color: crimson;
+    margin-top: 9vw;
+    background-color: blue;
     margin-left: 5vw;
     margin-right: 5vw;
     display: inline-block;
     max-width: 100%;
-    height: 120px;
+    height: 1200px;
     max-height: 100%;
+}
+
+.post {
+    display: inline-block;
+}
+
+.article-image {
+}
+
+.article-image img {
+    height: 552px;
+    width: 552px;
+    object-fit: cover;
+    object-position: 71.69271414620536% 54.087747665559824%;
+}
+
+.article-text {
+    padding-left: 0;
+    padding-right: 0;
+    line-height: normal;
+    margin-left: 1vh;
+    font-size: calc((1.2 - 1)* 1.2vw + 1rem);
+}
+
+.article-text>div {
+    font-size: calc((1 - 1)* 1.2vw + 1rem);
+}
+
+.article-text>a {
+    padding: .1em 0;
+    text-decoration: none;
+}
+
+.title {
+    color: hsl(0, 58%, 61%);
 }
