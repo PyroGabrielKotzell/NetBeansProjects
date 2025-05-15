@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <form>
+            <select name="metodo" id="metodo" onclick="methodChanged()">
+                <option value="get" selected>GET</option>
+                <option value="post">POST</option>
+                <option value="put">PUT</option>
+                <option value="delete">DELETE</option>
+            </select>
+            
+            <table>
+                <tr>
+                    <td>Codice</td>
+                    <td>
+                        <input type="text" name="codice" id="codice" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nome</td>
+                    <td>
+                        <input type="text" name="nome" id="nome" disabled />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cognome</td>
+                    <td>
+                        <input type="text" name="cognome" id="cognome" disabled />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mansione</td>
+                    <td>
+                        <input type="text" name="mansione" id="mansione" disabled />
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit" onclick="sendRequest(event)">send</button>
+        </form>
+        <div id="container"></div>
+    </body>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+form {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+select {
+}
+
+option {
+}
+
+input {
+}
+
+button {
+}
+
+#container {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+table {
+}
+
+tr {
+}
+
+td {
+}
