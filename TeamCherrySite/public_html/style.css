@@ -123,8 +123,8 @@
 }
 
 .article-image img {
-    height: 552px;
-    width: 552px;
+    height: 41vw;
+    width: 41vw;
     object-fit: cover;
     object-position: 71.69271414620536% 54.087747665559824%;
 }
