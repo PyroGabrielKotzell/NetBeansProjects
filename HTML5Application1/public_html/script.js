@@ -14,18 +14,18 @@ function sendRequest(event) {
     let lastname = cognome.value;
     let job = mansione.value;
 
-    let headers = {"Access-Control-Allow-Origin": "*"};
+    let headers = {};
 
     let base = {codice: code, nome: name, cognome: lastname, mansione: job};
     let params = JSON.stringify(base);
     if (method === "post") {
         headers = {
-            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/x-www-form-urlencoded"
         };
         params = new URLSearchParams(base);
     }
 
+    let str = "<table>";
     if (method === "get" || method === "delete") {
         fetch("http://localhost:8000/?codice=" + code, {
             method: method,
@@ -33,22 +33,27 @@ function sendRequest(event) {
         }).then(response => {
             return response.json();
         }).then(json => {
-            let obj = JSON.parse(json);
-            let keys = Object.keys(obj);
-            let values = Object.values(obj);
-            let str = "<table><tr>";
+            if (code !== "") {
+                let keys = Object.keys(json);
+                str += printKeys(keys, str);
+                str += printCon(json, str);
+            } else {
+                let stato = json.stato;
+                delete json.stato;
+                let keys = Object.keys(json[0]);
+                let values = Object.values(json);
 
-            keys.forEach(element => {
-                str += `<td>${element}</td>`;
-            });
+                keys.push("stato");
+                values[values.length - 1].stato = stato;
 
-            str += "</tr><tr>";
+                str += printKeys(keys);
+                values.forEach(element => {
+                    str += printCon(element);
+                });
+            }
 
-            values.forEach(element => {
-                str += `<td>${element}</td>`;
-            });
-
-            container.innerHTML = str + "</tr></table>";
+            str += "</table>";
+            container.innerHTML = str;
         });
     } else {
         fetch("http://localhost:8000/", {
@@ -58,25 +63,35 @@ function sendRequest(event) {
         }).then(response => {
             return response.json();
         }).then(json => {
-            let obj = JSON.parse(json);
-            let keys = Object.keys(obj);
-            let values = Object.values(obj);
-            let str = "<table><tr>";
-
-            keys.forEach(element => {
-                str += `<td>${element}</td>`;
-            });
-
-            str += "</tr><tr>";
-
-            values.forEach(element => {
-                str += `<td>${element}</td>`;
-            });
-
-            container.innerHTML = str + "</tr></table>";
+            let keys = Object.keys(json);
+            str += printKeys(keys, str);
+            str += printCon(json, str);
+            str += "</table>";
+            container.innerHTML = str;
         });
     }
+}
 
+function printKeys(json) {
+    let keys = Object.values(json);
+    let str = "<tr>";
+
+    keys.forEach(element => {
+        str += `<td>${element}</td>`;
+    });
+
+    return str += "</tr>";
+}
+
+function printCon(json) {
+    let values = Object.values(json);
+    let str = "<tr>";
+
+    values.forEach(element => {
+        str += `<td>${element}</td>`;
+    });
+
+    return str += "</tr>";
 }
 
 function methodChanged() {
